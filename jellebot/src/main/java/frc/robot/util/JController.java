@@ -8,14 +8,13 @@
 package frc.robot.util;
 
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.drive.Vector2d;
 
 /**
  * Add your docs here.
  */
-public class JelleController extends XboxController {
+public class JController extends XboxController {
 
-    public JelleController(int port) {
+    public JController(int port) {
         super(port);
     }
 
@@ -26,13 +25,6 @@ public class JelleController extends XboxController {
     public double getLeftJoyY() {
         return getRawAxis(1);
     }
-    
-    public Vector2d getLeftJoy() {
-        return new Vector2d(
-            getLeftJoyX(),
-            getLeftJoyY()
-        );
-    }
 
     public double getRightJoyX() {
         return getRawAxis(4);
@@ -40,12 +32,5 @@ public class JelleController extends XboxController {
 
     public double getRightJoyY() {
         return getRawAxis(5);
-    }
-
-    public Vector2d getRightJoy() {
-        return new Vector2d(
-            getRightJoyX(),
-            getRightJoyY()
-        );
     }
 }

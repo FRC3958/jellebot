@@ -11,41 +11,47 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.JelleDrive;
+import frc.robot.commands.JDrive;
+import frc.robot.util.JMath;
 
 /**
  * Add your docs here.
  */
 public class DriveTrain extends Subsystem {
 
-  private TalonSRX frontLeftTalon, frontRightTalon,
-    backLeftTalon, backRightTalon;
+    private TalonSRX m_frontLeftTalon, m_frontRightTalon,
+     m_backLeftTalon, m_backRightTalon;
 
-  public DriveTrain() {
+    public DriveTrain() {
 
-    frontLeftTalon  = new TalonSRX(RobotMap.FRONT_LEFT_TALON);
-    frontRightTalon = new TalonSRX(RobotMap.FRONT_RIGHT_TALON);
-    backLeftTalon   = new TalonSRX(RobotMap.BACK_LEFT_TALON);
-    backRightTalon  = new TalonSRX(RobotMap.BACK_RIGHT_TALON);
+        m_frontLeftTalon    = new TalonSRX(RobotMap.FRONT_LEFT_TALON);
+        m_frontRightTalon   = new TalonSRX(RobotMap.FRONT_RIGHT_TALON);
+        m_backLeftTalon     = new TalonSRX(RobotMap.BACK_LEFT_TALON);
+        m_backRightTalon    = new TalonSRX(RobotMap.BACK_RIGHT_TALON);
 
-    frontRightTalon.setInverted(true);
-    backRightTalon.setInverted(true);
+        m_frontLeftTalon.setInverted(true);
 
-    backLeftTalon.follow(frontLeftTalon);
-    backRightTalon.follow(frontRightTalon);
+        m_backLeftTalon.follow(m_frontLeftTalon);
+        m_backRightTalon.follow(m_frontRightTalon);
+    }
 
-  }
+    public void tankDrive(double forward, double turn) {
+        double leftPercent = forward - turn;
+        double rightPercent = forward + turn;
 
-  public void arcadeDrive(double speed, double rotation) {
-    
-    frontLeftTalon.set(ControlMode.PercentOutput, speed);
-  }
+        leftPercent = JMath.clamp(leftPercent, -1, 1);
+        rightPercent = JMath.clamp(rightPercent, -1, 1);
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new JelleDrive());
-  }
+        m_frontLeftTalon.set(ControlMode.PercentOutput, leftPercent);
+        m_frontRightTalon.set(ControlMode.PercentOutput, rightPercent);
+    }
+
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new JDrive(Robot.m_oi.driverController));
+    }
 }
