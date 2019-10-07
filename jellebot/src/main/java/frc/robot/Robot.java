@@ -26,7 +26,7 @@ public class Robot extends TimedRobot {
      * Subsystems
      */
     public static DriveTrain m_driveTrain;
-    public static Pneumatics m_pneumatics;
+    public static Arm m_arm;
 
     /**
      * This function is run when the robot is first started up and should be used
@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
 
         m_oi = new OI();
         m_driveTrain = new DriveTrain();
-        m_pneumatics = new Pneumatics();
+        m_arm = new Arm();
     }
 
     /**

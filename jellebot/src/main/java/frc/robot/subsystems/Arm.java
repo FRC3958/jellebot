@@ -7,22 +7,28 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.JOperate;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 /**
  * Add your docs here.
  */
-public class Pneumatics extends Subsystem {
+public class Arm extends Subsystem {
 
     private Solenoid m_solenoid;
+    private TalonSRX m_axle; 
+    private AnalogPotentiometer m_pot;
 
-    public Pneumatics() {
+    public Arm() {
 
-        m_solenoid = new Solenoid(RobotMap.SOLENOID);
+        m_solenoid  = new Solenoid(RobotMap.ARM_SOLENOID);
+        m_axle      = new TalonSRX(RobotMap.ARM_AXLE_TALON);
+        m_pot       = new AnalogPotentiometer(RobotMap.ARM_AXLE_POT, 360);
     }
 
     public void setOff() {
@@ -31,6 +37,10 @@ public class Pneumatics extends Subsystem {
 
     public void setOn() {
         m_solenoid.set(true);
+    }
+
+    public double getAngle() {
+        return m_pot.get();
     }
 
     @Override

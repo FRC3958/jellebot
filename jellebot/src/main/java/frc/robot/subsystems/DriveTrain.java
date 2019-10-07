@@ -26,10 +26,10 @@ public class DriveTrain extends Subsystem {
 
     public DriveTrain() {
 
-        m_frontLeftTalon    = new TalonSRX(RobotMap.FRONT_LEFT_TALON);
-        m_frontRightTalon   = new TalonSRX(RobotMap.FRONT_RIGHT_TALON);
-        m_backLeftTalon     = new TalonSRX(RobotMap.BACK_LEFT_TALON);
-        m_backRightTalon    = new TalonSRX(RobotMap.BACK_RIGHT_TALON);
+        m_frontLeftTalon    = new TalonSRX(RobotMap.DT_FRONT_LEFT_TALON);
+        m_frontRightTalon   = new TalonSRX(RobotMap.DT_FRONT_RIGHT_TALON);
+        m_backLeftTalon     = new TalonSRX(RobotMap.DT_BACK_LEFT_TALON);
+        m_backRightTalon    = new TalonSRX(RobotMap.DT_BACK_RIGHT_TALON);
 
         m_frontLeftTalon.setInverted(true);
 

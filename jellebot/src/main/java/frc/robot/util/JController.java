@@ -8,29 +8,29 @@
 package frc.robot.util;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * Add your docs here.
  */
 public class JController extends XboxController {
+    
+    enum ButtonCodes {
+        kBumperLeft(5), kBumperRight(6), kStickLeft(9), kStickRight(10), kA(1), kB(2), kX(3), kY(4), kBack(7),
+        kStart(8);
 
+        public int value;
+
+        ButtonCodes(int value) {
+            this.value = value;
+        }
+    }
+    
+    public Button bumperLeft = new JoystickButton(this, ButtonCodes.kBumperLeft.value),
+        bumperRight = new JoystickButton(this, ButtonCodes.kBumperRight.value),
+        aButton = new JoystickButton(this, ButtonCodes.kA.value); // uwu *sleepy weepy* *wakes up* -O- *yawn* o-O *who are you???* owo *notices your great smile* 
     public JController(int port) {
         super(port);
-    }
-
-    public double getLeftJoyX() {
-        return getRawAxis(0);
-    }
-
-    public double getLeftJoyY() {
-        return getRawAxis(1);
-    }
-
-    public double getRightJoyX() {
-        return getRawAxis(4);
-    }
-
-    public double getRightJoyY() {
-        return getRawAxis(5);
     }
 }

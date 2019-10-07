@@ -16,7 +16,7 @@ public class JOperate extends Command {
     public JOperate(JController controller) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.m_pneumatics);
+        requires(Robot.m_arm);
 
         m_controller = controller;
     }
@@ -33,9 +33,9 @@ public class JOperate extends Command {
     protected void execute() {
 
         if (m_controller.getAButton()) {
-            Robot.m_pneumatics.setOn();
+            Robot.m_arm.setOn();
         } else if (m_controller.getBButton()) {
-            Robot.m_pneumatics.setOff();
+            Robot.m_arm.setOff();
         }
     }
 
