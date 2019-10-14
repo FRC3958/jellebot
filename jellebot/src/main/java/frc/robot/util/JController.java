@@ -30,7 +30,10 @@ public class JController extends XboxController {
     public Button bumperLeft = new JoystickButton(this, ButtonCodes.kBumperLeft.value),
         bumperRight = new JoystickButton(this, ButtonCodes.kBumperRight.value),
         aButton = new JoystickButton(this, ButtonCodes.kA.value); // uwu *sleepy weepy* *wakes up* -O- *yawn* o-O *who are you???* owo *notices your great smile* 
-    public JController(int port) {
+    
+        public JController(int port) {
         super(port);
     }
+	
+
 }

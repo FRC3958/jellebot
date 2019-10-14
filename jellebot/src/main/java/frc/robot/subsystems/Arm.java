@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.JOperate;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 /**
@@ -48,5 +50,9 @@ public class Arm extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new JOperate(Robot.m_oi.driverController));
+    }
+    
+    public void setArm(double setup) {
+        m_axle.set(ControlMode.PercentOutput, setup);
     }
 }

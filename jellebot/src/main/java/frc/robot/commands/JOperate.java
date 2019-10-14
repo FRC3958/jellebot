@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.util.JController;
@@ -36,6 +37,10 @@ public class JOperate extends Command {
             Robot.m_arm.setOn();
         } else if (m_controller.getBButton()) {
             Robot.m_arm.setOff();
+        }
+
+        if(m_controller.getBumper(Hand.kLeft)) {
+            Robot.m_arm.setArm(1);
         }
     }
 
