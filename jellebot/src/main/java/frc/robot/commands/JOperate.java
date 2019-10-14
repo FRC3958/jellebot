@@ -41,6 +41,8 @@ public class JOperate extends Command {
 
         if(m_controller.getBumper(Hand.kLeft)) {
             Robot.m_arm.setArm(1);
+        } else if (m_controller.getBumper(Hand.kRight)) {
+            Robot.m_arm.setArm(-1);
         }
     }
 

@@ -30,7 +30,7 @@ public class Arm extends Subsystem {
 
         m_solenoid  = new Solenoid(RobotMap.ARM_SOLENOID);
         m_axle      = new TalonSRX(RobotMap.ARM_AXLE_TALON);
-        m_pot       = new AnalogPotentiometer(RobotMap.ARM_AXLE_POT, 360);
+        //m_pot       = new AnalogPotentiometer(RobotMap.ARM_AXLE_POT, 360);
     }
 
     public void setOff() {
