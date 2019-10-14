@@ -19,13 +19,13 @@ public class RobotMap {
     // public static int leftMotor = 1;
     // public static int rightMotor = 2;
 
-    public static int DT_FRONT_LEFT_TALON = 0;
+    public static int DT_FRONT_LEFT_TALON = 4;
     public static int DT_FRONT_RIGHT_TALON = 3;
-    public static int DT_BACK_LEFT_TALON = 1;
-    public static int DT_BACK_RIGHT_TALON = 4;
+    public static int DT_BACK_LEFT_TALON = 2;
+    public static int DT_BACK_RIGHT_TALON = 1;
 
     public static int ARM_SOLENOID = 0;
-    public static int ARM_AXLE_TALON = -1;
+    public static int ARM_AXLE_TALON = 5;
     public static int ARM_AXLE_POT = -1;
 
     // If you are using multiple modules, make sure to define both the port
