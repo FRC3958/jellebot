@@ -23,14 +23,14 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 public class Arm extends Subsystem {
 
     private Solenoid m_solenoid;
-    private TalonSRX m_axle; 
+    private TalonSRX m_axle;
     private AnalogPotentiometer m_pot;
 
     public Arm() {
 
-        m_solenoid  = new Solenoid(RobotMap.ARM_SOLENOID);
-        m_axle      = new TalonSRX(RobotMap.ARM_AXLE_TALON);
-        //m_pot       = new AnalogPotentiometer(RobotMap.ARM_AXLE_POT, 360);
+        // m_solenoid = new Solenoid(RobotMap.ARM_SOLENOID);
+        m_axle = new TalonSRX(RobotMap.ARM_AXLE_TALON);
+        // m_pot = new AnalogPotentiometer(RobotMap.ARM_AXLE_POT, 360);
     }
 
     public void setOff() {
@@ -51,7 +51,7 @@ public class Arm extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new JOperate(Robot.m_oi.driverController));
     }
-    
+
     public void setArm(double setup) {
         m_axle.set(ControlMode.PercentOutput, setup);
     }

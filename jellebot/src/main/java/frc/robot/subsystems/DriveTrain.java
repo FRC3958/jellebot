@@ -21,17 +21,17 @@ import frc.robot.util.JMath;
  */
 public class DriveTrain extends Subsystem {
 
-    private TalonSRX m_frontLeftTalon, m_frontRightTalon,
-     m_backLeftTalon, m_backRightTalon;
+    private TalonSRX m_frontLeftTalon, m_frontRightTalon, m_backLeftTalon, m_backRightTalon;
 
     public DriveTrain() {
 
-        m_frontLeftTalon    = new TalonSRX(RobotMap.DT_FRONT_LEFT_TALON);
-        m_frontRightTalon   = new TalonSRX(RobotMap.DT_FRONT_RIGHT_TALON);
-        m_backLeftTalon     = new TalonSRX(RobotMap.DT_BACK_LEFT_TALON);
-        m_backRightTalon    = new TalonSRX(RobotMap.DT_BACK_RIGHT_TALON);
+        m_frontLeftTalon = new TalonSRX(RobotMap.DT_FRONT_LEFT_TALON);
+        m_frontRightTalon = new TalonSRX(RobotMap.DT_FRONT_RIGHT_TALON);
+        m_backLeftTalon = new TalonSRX(RobotMap.DT_BACK_LEFT_TALON);
+        m_backRightTalon = new TalonSRX(RobotMap.DT_BACK_RIGHT_TALON);
 
         m_frontLeftTalon.setInverted(true);
+        m_backLeftTalon.setInverted(true);
 
         m_backLeftTalon.follow(m_frontLeftTalon);
         m_backRightTalon.follow(m_frontRightTalon);
