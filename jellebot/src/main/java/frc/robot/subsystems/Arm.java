@@ -30,11 +30,11 @@ public class Arm extends Subsystem {
         m_axle = new TalonSRX(RobotMap.ARM_AXLE_TALON);
     }
 
-    public void setOff() {
+    public void openCannon() {
         m_solenoid.set(false);
     }
 
-    public void setOn() {
+    public void closeCannon() {
         m_solenoid.set(true);
     }
 

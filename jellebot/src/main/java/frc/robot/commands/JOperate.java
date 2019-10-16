@@ -34,9 +34,9 @@ public class JOperate extends Command {
     protected void execute() {
 
         if (m_controller.getAButton()) {
-            Robot.m_arm.setOn();
-        } else if (m_controller.getBButton()) {
-            Robot.m_arm.setOff();
+            Robot.m_arm.closeCannon();
+        } else {
+            Robot.m_arm.openCannon();
         }
 
         if (m_controller.getBumper(Hand.kLeft)) {

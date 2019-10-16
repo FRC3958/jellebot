@@ -46,6 +46,7 @@ public class JController extends XboxController {
 
     @Override
     public double getY(Hand hand) {
+
         double original = super.getY(hand);
 
         return (Math.abs(original) < 0.1) ? 0 : original;
