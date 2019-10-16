@@ -33,16 +33,16 @@ public class JOperate extends Command {
     @Override
     protected void execute() {
 
-        if (m_controller.getAButton()) {
-            Robot.m_arm.closeCannon();
-        } else {
+        if (m_controller.getAButton() && m_controller.getBButton()) {
             Robot.m_arm.openCannon();
+        } else {
+            Robot.m_arm.closeCannon();
         }
 
         if (m_controller.getBumper(Hand.kLeft)) {
-            Robot.m_arm.setArm(0.20);
+            Robot.m_arm.setArm(0.12);
         } else if (m_controller.getBumper(Hand.kRight)) {
-            Robot.m_arm.setArm(-0.20);
+            Robot.m_arm.setArm(-0.12);
         } else {
             Robot.m_arm.setArm(0);
         }

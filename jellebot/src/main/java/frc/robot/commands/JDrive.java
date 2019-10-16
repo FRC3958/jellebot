@@ -34,9 +34,7 @@ public class JDrive extends Command {
     @Override
     protected void execute() {
 
-        Robot.m_driveTrain.tankDrive(
-            m_controller.getY(Hand.kLeft),
-            m_controller.getX(Hand.kRight));
+        Robot.m_driveTrain.tankDrive(m_controller.getY(Hand.kRight), m_controller.getX(Hand.kLeft));
     }
 
     // Make this return true when this Command no longer needs to run execute()

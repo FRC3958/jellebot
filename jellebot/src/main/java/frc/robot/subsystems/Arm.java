@@ -7,7 +7,6 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
@@ -30,11 +29,11 @@ public class Arm extends Subsystem {
         m_axle = new TalonSRX(RobotMap.ARM_AXLE_TALON);
     }
 
-    public void openCannon() {
+    public void closeCannon() {
         m_solenoid.set(false);
     }
 
-    public void closeCannon() {
+    public void openCannon() {
         m_solenoid.set(true);
     }
 
