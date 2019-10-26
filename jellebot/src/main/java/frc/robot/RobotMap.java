@@ -26,7 +26,6 @@ public class RobotMap {
 
     public static int ARM_SOLENOID = 11;
     public static int ARM_AXLE_TALON = 1;
-    public static int ARM_AXLE_POT = -1;
 
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
