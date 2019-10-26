@@ -49,6 +49,9 @@ public class DriveTrain extends Subsystem {
     }
 
     public void tankDrive(double forward, double turn) {
+        // hard limit on turning, disable or replace with scaling later!
+        turn *= .25;
+
         double leftPercent = forward - turn;
         double rightPercent = forward + turn;
 
