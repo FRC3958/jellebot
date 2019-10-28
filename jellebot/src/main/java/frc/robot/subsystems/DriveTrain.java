@@ -27,13 +27,13 @@ public class DriveTrain extends Subsystem {
 
     private TalonSRX m_frontLeftTalon, m_frontRightTalon, m_backLeftTalon, m_backRightTalon;
     private Encoder leftdrivetrain;
+    
     public DriveTrain() {
 
         m_frontLeftTalon = new TalonSRX(RobotMap.DT_FRONT_LEFT_TALON);
         m_frontRightTalon = new TalonSRX(RobotMap.DT_FRONT_RIGHT_TALON);
         m_backLeftTalon = new TalonSRX(RobotMap.DT_BACK_LEFT_TALON);
         m_backRightTalon = new TalonSRX(RobotMap.DT_BACK_RIGHT_TALON);
-        leftdrivetrain = new Encoder(0,1,false,Encoder.EncodingType.k4X );
 
         m_frontLeftTalon.setInverted(true);
         m_backLeftTalon.setInverted(true);
@@ -41,11 +41,23 @@ public class DriveTrain extends Subsystem {
         m_backLeftTalon.follow(m_frontLeftTalon);
         m_backRightTalon.follow(m_frontRightTalon);
 
+        leftdrivetrain = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+
         leftdrivetrain.setMaxPeriod(0.1);
         leftdrivetrain.setMinRate(10);
         leftdrivetrain.setDistancePerPulse(5);
         leftdrivetrain.setReverseDirection(false);
         leftdrivetrain.setSamplesToAverage(7);
+
+        double distance = leftdrivetrain.getDistance();
+        double period = leftdrivetrain.getPeriod();
+        double rate = leftdrivetrain.getRate();
+        boolean direction = leftdrivetrain.getDirection();
+        boolean stopped = leftdrivetrain.getStopped();
+
+        //SmartDashboard.putData();
+        
+
     }
 
     public void tankDrive(double forward, double turn) {
