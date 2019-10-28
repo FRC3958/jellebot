@@ -13,15 +13,18 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.JDrive;
 import frc.robot.util.JMath;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 /**
  * Jelle made this
- */
+ */     
 public class DriveTrain extends Subsystem {
 
     private TalonSRX m_frontLeftTalon, m_frontRightTalon, m_backLeftTalon, m_backRightTalon;
@@ -33,6 +36,7 @@ public class DriveTrain extends Subsystem {
         m_frontRightTalon = new TalonSRX(RobotMap.DT_FRONT_RIGHT_TALON);
         m_backLeftTalon = new TalonSRX(RobotMap.DT_BACK_LEFT_TALON);
         m_backRightTalon = new TalonSRX(RobotMap.DT_BACK_RIGHT_TALON);
+        leftdrivetrain = new Encoder(1, 2, false, EncodingType.k4X);
 
         m_frontLeftTalon.setInverted(true);
         m_backLeftTalon.setInverted(true);
@@ -40,7 +44,7 @@ public class DriveTrain extends Subsystem {
         m_backLeftTalon.follow(m_frontLeftTalon);
         m_backRightTalon.follow(m_frontRightTalon);
 
-        leftdrivetrain = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+        
 
         leftdrivetrain.setMaxPeriod(0.1);
         leftdrivetrain.setMinRate(10);
@@ -54,8 +58,13 @@ public class DriveTrain extends Subsystem {
         boolean direction = leftdrivetrain.getDirection();
         boolean stopped = leftdrivetrain.getStopped();
 
-        //SmartDashboard.putData();
-        
+        SmartDashboard.putNumber("Distance", distance);
+        SmartDashboard.putNumber("period", period);
+        SmartDashboard.putNumber("Rate", rate);
+        SmartDashboard.putBoolean("Direction", direction);
+        SmartDashboard.putBoolean("Stopped", stopped);
+
+     
 
     }
 
